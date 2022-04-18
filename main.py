@@ -19,9 +19,4 @@ with open(f'{get_removable_disk_drive_leter()}:\\mac-addresses.txt', 'a') as fil
     mac_addresses = get_physical_mac_addresses()
     for address in mac_addresses:
         file.write(address + '\n')
-
-#add SSH Remote on Mac
-#add SSH Remote on PC
-#test ssh 2
-
-#Egit clone git@github.com:octocat/Spoon-Knife
+print('program complete')
