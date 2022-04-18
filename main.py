@@ -14,4 +14,5 @@ clean_addresses = [address.split(':')[1].strip() for address in physical_address
 
 print(clean_addresses)
 
-#add SSH Remote
+#add SSH Remote on Mac
+#add SSH Remote on PC
