@@ -23,7 +23,7 @@ def get_removable_disk_drive_leter():
     result = str(subprocess.run('wmic logicaldisk get deviceid, volumename, description', capture_output=1)) 
 
     # create a regular expression to find the correct drive letter fot the removable drive
-    removable_disk_drive_leter_regular_expression = r'(?:Removable Disk\s*)([A-Z])(?::\s*MAC-address)'
+    removable_disk_drive_leter_regular_expression = r'(?:Removable Disk\s*)([A-Z])(?::\s*OIT-CONFIG)'
 
     # find the drive letter
     removable_disk_drive_leter = re.search(removable_disk_drive_leter_regular_expression, result).group(1) 
