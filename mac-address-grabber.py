@@ -1,6 +1,10 @@
 import subprocess
 import re
 
+def print_list(lst):
+    for item in lst:
+        print(item)
+
 def get_physical_mac_addresses():
     # run the ipconfig /all command and capture the output
     result = str(subprocess.run('ipconfig /all', capture_output=1)) 
@@ -30,10 +34,20 @@ def get_removable_disk_drive_leter():
     
     return removable_disk_drive_leter 
 
+
+mac_addresses = get_physical_mac_addresses()
+mac_addresses_file_path = f'{get_removable_disk_drive_leter()}:\\mac-addresses.txt'
+
 # open mac-adresses.txt, append the addresses to it and save/close the file
-with open(f'{get_removable_disk_drive_leter()}:\\mac-addresses.txt', 'a') as file:
-    mac_addresses = get_physical_mac_addresses()
+with open(mac_addresses_file_path, 'a') as file:
+    
     for address in mac_addresses:
         file.write(address + '\n')
+
+print(f"The following MAC addresses were saved to {mac_addresses_file_path}:")
+print('')
+print_list(mac_addresses)
+print('' * 2)
+input("Press enter to exit: ")
 
 
