@@ -5,6 +5,12 @@ def print_list(lst):
     for item in lst:
         print(item)
 
+def count_lines_in_file(file_path):
+    with open(file_path, 'r') as file:
+        all_lines = file.readlines()
+        return len(all_lines)
+        
+
 def get_physical_mac_addresses():
     # run the ipconfig /all command and capture the output
     result = str(subprocess.run('ipconfig /all', capture_output=1)) 
@@ -47,6 +53,8 @@ with open(mac_addresses_file_path, 'a') as file:
 print(f"The following MAC addresses were saved to {mac_addresses_file_path}:")
 print('')
 print_list(mac_addresses)
+print('')
+print(f'There are now {count_lines_in_file(mac_addresses_file_path)} lines in this file.')
 print('' * 2)
 input("Press enter to exit: ")
 
